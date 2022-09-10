@@ -1,10 +1,8 @@
 import React from 'react'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
-import { ReactQueryDevtools } from 'react-query-devtools'
 //
 
 import { Wrapper, Main } from './components/styled'
-import GlobalLoader from './components/GlobalLoader'
 import Sidebar from './components/Sidebar'
 
 import Admin from './screens/admin'
@@ -25,7 +23,6 @@ export default function App() {
     <SafeHydrate>
       <BrowserRouter>
         <Wrapper>
-          <GlobalLoader />
           <Sidebar />
           <Main>
             <Routes>
@@ -44,7 +41,6 @@ export default function App() {
             </Routes>
           </Main>
         </Wrapper>
-        <ReactQueryDevtools />
       </BrowserRouter>
     </SafeHydrate>
   )

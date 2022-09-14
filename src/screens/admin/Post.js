@@ -18,11 +18,6 @@ export default function Post() {
   const [savePost, savePostInfo] = useSavePost()
   const [deletePost, deletePostInfo] = useDeletePost()
 
-  const onSubmit = async (values) => {
-    await savePost(values)
-    postQuery.fetch()
-  }
-
   const onDelete = async () => {
     await deletePost(postId)
     navigate('/admin')
@@ -42,7 +37,7 @@ export default function Post() {
           </p>
           <PostForm
             initialValues={postQuery.data}
-            onSubmit={onSubmit}
+            onSubmit={savePost}
             submitText={
               savePostInfo.isLoading
                 ? 'Saving...'

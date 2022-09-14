@@ -4,11 +4,13 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom'
 
 import { Wrapper, Main } from './components/styled'
 import Sidebar from './components/Sidebar'
+import GlobalLoader from './components/GlobalLoader'
 
 import Admin from './screens/admin'
 import AdminPost from './screens/admin/Post'
 import Blog from './screens/blog'
 import BlogPost from './screens/blog/Post'
+import { ReactQueryDevtools } from 'react-query-devtools'
 
 function SafeHydrate({ children }) {
   return (
@@ -23,6 +25,7 @@ export default function App() {
     <SafeHydrate>
       <BrowserRouter>
         <Wrapper>
+          <GlobalLoader />
           <Sidebar />
           <Main>
             <Routes>
@@ -41,6 +44,7 @@ export default function App() {
             </Routes>
           </Main>
         </Wrapper>
+        <ReactQueryDevtools />
       </BrowserRouter>
     </SafeHydrate>
   )
